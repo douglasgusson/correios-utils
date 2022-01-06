@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "correios"
+name = "correios-utils"
 version = "0.1.0"
 description = ""
 authors = ["Douglas Gusson <douglasgusson@gmail.com>"]
