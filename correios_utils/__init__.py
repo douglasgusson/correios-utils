@@ -4,6 +4,7 @@ from .correios import (
     SimNao,
     Servico,
     realizar_cotacao,
+    get_descricao_servico,
 )
 
 __all__ = [
@@ -12,6 +13,7 @@ __all__ = [
     "FormatoEncomenda",
     "SimNao",
     "realizar_cotacao",
+    "get_descricao_servico",
 ]
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
