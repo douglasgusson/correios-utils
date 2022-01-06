@@ -25,12 +25,12 @@ class SimNao(Enum):
 @dataclass
 class Cotacao:
     codigo: str
-    valor: str
+    valor: float
     prazo_entrega: int
-    valor_sem_adicionais: str
-    valor_mao_propria: str
-    valor_aviso_recebimento: str
-    valor_valor_declarado: str
+    valor_sem_adicionais: float
+    valor_mao_propria: float
+    valor_aviso_recebimento: float
+    valor_valor_declarado: float
     entrega_domiciliar: str
     entrega_sabado: str
     obs_fim: str
@@ -41,12 +41,12 @@ class Cotacao:
     def from_dict(d: dict) -> 'Cotacao':
         return Cotacao(
             codigo=d.get('Codigo'),
-            valor=d.get('Valor'),
+            valor=float((d.get('Valor') or "0").replace(',', '.')),
             prazo_entrega=int(d.get('PrazoEntrega')),
-            valor_sem_adicionais=d.get('ValorSemAdicionais'),
-            valor_mao_propria=d.get('ValorMaoPropria'),
-            valor_aviso_recebimento=d.get('ValorAvisoRecebimento'),
-            valor_valor_declarado=d.get('ValorValorDeclarado'),
+            valor_sem_adicionais=float((d.get('ValorSemAdicionais') or "0").replace(",", ".")),
+            valor_mao_propria=float((d.get('ValorMaoPropria') or "0").replace(",", ".")),
+            valor_aviso_recebimento=float((d.get('ValorAvisoRecebimento') or "0").replace(",", ".")),
+            valor_valor_declarado=float((d.get('ValorValorDeclarado') or "0").replace(",", ".")),
             entrega_domiciliar=d.get('EntregaDomiciliar'),
             entrega_sabado=d.get('EntregaSabado'),
             obs_fim=d.get('obsFim'),
@@ -140,7 +140,7 @@ if __name__ == '__main__':
         largura=45,
         diametro=0,
         formato_encomenda=FormatoEncomenda.CAIXA_PACOTE,
-        valor_declarado=0,
+        valor_declarado=300,
         mao_propria=SimNao.NAO,
         aviso_recebimento=SimNao.NAO,
         codigo_empresa="08082650",
