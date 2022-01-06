@@ -5,7 +5,7 @@ from correios_utils.correios import (
 )
 
 def test_version():
-    assert __version__ == "0.1.0"
+    assert __version__ == "0.1.1"
 
 def test_get_descricao_servicos():
     assert get_descricao_servico(Servico.PAC.value) == "PAC"
